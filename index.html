@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 Java If / Else Exercises - Interactive Learning Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-badge">☕ Java Programming Practice</div>
+      <h1>20 If / Else Exercises</h1>
+      <p class="hero-subtext">
+        Progressive exercises from basic condition checks to real-world analytical problems.
+        Test each exercise interactively and inspect its simple Java solution!
+      </p>
+
+      <!-- Quick Search & Level Filter -->
+      <div class="controls-toolbar">
+        <div class="search-box">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search exercises (e.g., discount, password, login)..." onkeyup="filterExercises()">
+        </div>
+
+        <div class="filter-pills" id="filterPills">
+          <button class="pill active" onclick="setFilter('all', this)">All (20)</button>
+          <button class="pill" onclick="setFilter('level-1', this)">Level 1: Basic (1-5)</button>
+          <button class="pill" onclick="setFilter('level-2', this)">Level 2: Else If (6-10)</button>
+          <button class="pill" onclick="setFilter('level-3', this)">Level 3: Multi Conditions (11-15)</button>
+          <button class="pill" onclick="setFilter('level-4', this)">Level 4: Analytical (16-20)</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="container main-content">
+
+    <!-- ==============================================
+         LEVEL 1: BASIC (EXERCISES 1 TO 5)
+    ================================================ -->
+    <section class="level-section" data-level="level-1">
+      <div class="level-header">
+        <span class="level-tag level-1-tag">Level 1</span>
+        <h2>Basic Conditions</h2>
+        <span class="level-count">Exercises 1 – 5</span>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Exercise 1 -->
+        <article class="card" id="ex-1">
+          <div class="card-top">
+            <span class="ex-number">#1</span>
+            <span class="badge basic-badge">Basic</span>
+          </div>
+          <h3>Positive or Negative</h3>
+          <p class="desc">Input a number. Display <strong>"Positive"</strong> if greater than 0, and <strong>"Negative"</strong> if less than 0.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input1">Enter a Number:</label>
+              <input type="number" id="input1" placeholder="e.g. 15 or -7" value="12">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx1()">Check Result</button>
+            <div class="output-box" id="output1">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code1', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code1"><code>int number = 12;
+
+if (number > 0) {
+    System.out.println("Positive");
+} else if (number < 0) {
+    System.out.println("Negative");
+} else {
+    System.out.println("Zero");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 2 -->
+        <article class="card" id="ex-2">
+          <div class="card-top">
+            <span class="ex-number">#2</span>
+            <span class="badge basic-badge">Basic</span>
+          </div>
+          <h3>Even or Odd</h3>
+          <p class="desc">Input a number. Determine whether the number is <strong>Even</strong> or <strong>Odd</strong> using the modulo operator.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input2">Enter an Integer:</label>
+              <input type="number" id="input2" placeholder="e.g. 8" value="7">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx2()">Check Result</button>
+            <div class="output-box" id="output2">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code2', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code2"><code>int number = 7;
+
+if (number % 2 == 0) {
+    System.out.println("Even");
+} else {
+    System.out.println("Odd");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 3 -->
+        <article class="card" id="ex-3">
+          <div class="card-top">
+            <span class="ex-number">#3</span>
+            <span class="badge basic-badge">Basic</span>
+          </div>
+          <h3>Pass or Fail</h3>
+          <p class="desc">Input a student's score. If the score is <strong>&ge; 60</strong>, display <strong>"Pass"</strong>; otherwise, display <strong>"Fail"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input3">Student Score (0 - 100):</label>
+              <input type="number" id="input3" min="0" max="100" placeholder="e.g. 75" value="65">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx3()">Check Result</button>
+            <div class="output-box" id="output3">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code3', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code3"><code>int score = 65;
+
+if (score >= 60) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 4 -->
+        <article class="card" id="ex-4">
+          <div class="card-top">
+            <span class="ex-number">#4</span>
+            <span class="badge basic-badge">Basic</span>
+          </div>
+          <h3>Age Check</h3>
+          <p class="desc">Input a person's age. If the age is <strong>&ge; 17</strong>, display <strong>"Eligible for an ID card"</strong>; otherwise, <strong>"Not eligible for an ID card"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input4">Person's Age:</label>
+              <input type="number" id="input4" min="0" placeholder="e.g. 18" value="16">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx4()">Check Result</button>
+            <div class="output-box" id="output4">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code4', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code4"><code>int age = 16;
+
+if (age >= 17) {
+    System.out.println("Eligible for an ID card");
+} else {
+    System.out.println("Not eligible for an ID card");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 5 -->
+        <article class="card" id="ex-5">
+          <div class="card-top">
+            <span class="ex-number">#5</span>
+            <span class="badge basic-badge">Basic</span>
+          </div>
+          <h3>Free Shipping</h3>
+          <p class="desc">Input total purchase amount. If purchase is <strong>&ge; 100,000</strong>, display <strong>"Free Shipping"</strong>; otherwise, <strong>"Shipping Fee Applies"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input5">Total Purchase (Rp):</label>
+              <input type="number" id="input5" step="5000" placeholder="e.g. 120000" value="150000">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx5()">Check Result</button>
+            <div class="output-box" id="output5">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code5', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code5"><code>int totalPurchase = 150000;
+
+if (totalPurchase >= 100000) {
+    System.out.println("Free Shipping");
+} else {
+    System.out.println("Shipping Fee Applies");
+}</code></pre>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         LEVEL 2: IF / ELSE IF / ELSE (EXERCISES 6 TO 10)
+    ================================================ -->
+    <section class="level-section" data-level="level-2">
+      <div class="level-header">
+        <span class="level-tag level-2-tag">Level 2</span>
+        <h2>if / else if / else</h2>
+        <span class="level-count">Exercises 6 – 10</span>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Exercise 6 -->
+        <article class="card" id="ex-6">
+          <div class="card-top">
+            <span class="ex-number">#6</span>
+            <span class="badge elseif-badge">Multi-Branch</span>
+          </div>
+          <h3>Grade Category</h3>
+          <p class="desc">Grades: <strong>80–100 = A</strong>, <strong>70–79 = B</strong>, <strong>60–69 = C</strong>, <strong>50–59 = D</strong>, <strong>below 50 = E</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input6">Enter Score (0-100):</label>
+              <input type="number" id="input6" min="0" max="100" placeholder="e.g. 84" value="78">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx6()">Determine Grade</button>
+            <div class="output-box" id="output6">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code6', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code6"><code>int score = 78;
+
+if (score >= 80 && score <= 100) {
+    System.out.println("Grade: A");
+} else if (score >= 70) {
+    System.out.println("Grade: B");
+} else if (score >= 60) {
+    System.out.println("Grade: C");
+} else if (score >= 50) {
+    System.out.println("Grade: D");
+} else {
+    System.out.println("Grade: E");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 7 -->
+        <article class="card" id="ex-7">
+          <div class="card-top">
+            <span class="ex-number">#7</span>
+            <span class="badge elseif-badge">Multi-Branch</span>
+          </div>
+          <h3>Largest Number</h3>
+          <p class="desc">Input two numbers, <code>a</code> and <code>b</code>. Determine which is larger, or if they are equal: <strong>"Both numbers are equal"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input7a">Number A:</label>
+                <input type="number" id="input7a" value="25">
+              </div>
+              <div class="input-group">
+                <label for="input7b">Number B:</label>
+                <input type="number" id="input7b" value="40">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="solveEx7()">Compare Numbers</button>
+            <div class="output-box" id="output7">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code7', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code7"><code>int a = 25;
+int b = 40;
+
+if (a > b) {
+    System.out.println("a is larger (" + a + " > " + b + ")");
+} else if (b > a) {
+    System.out.println("b is larger (" + b + " > " + a + ")");
+} else {
+    System.out.println("Both numbers are equal");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 8 -->
+        <article class="card" id="ex-8">
+          <div class="card-top">
+            <span class="ex-number">#8</span>
+            <span class="badge elseif-badge">Multi-Branch</span>
+          </div>
+          <h3>Age Category</h3>
+          <p class="desc">Categories: <strong>0–5 = Toddler</strong>, <strong>6–12 = Child</strong>, <strong>13–17 = Teenager</strong>, <strong>18–59 = Adult</strong>, <strong>&ge; 60 = Senior</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input8">Enter Age:</label>
+              <input type="number" id="input8" min="0" placeholder="e.g. 15" value="14">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx8()">Find Category</button>
+            <div class="output-box" id="output8">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code8', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code8"><code>int age = 14;
+
+if (age >= 0 && age <= 5) {
+    System.out.println("Toddler");
+} else if (age <= 12) {
+    System.out.println("Child");
+} else if (age <= 17) {
+    System.out.println("Teenager");
+} else if (age <= 59) {
+    System.out.println("Adult");
+} else {
+    System.out.println("Senior");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 9 -->
+        <article class="card" id="ex-9">
+          <div class="card-top">
+            <span class="ex-number">#9</span>
+            <span class="badge elseif-badge">Multi-Branch</span>
+          </div>
+          <h3>Shopping Discount</h3>
+          <p class="desc">Purchase tiers: <strong>&ge; 1,000,000 = 20%</strong>, <strong>&ge; 500,000 = 10%</strong>, <strong>&ge; 250,000 = 5%</strong>, below = no discount. Calculates final price.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input9">Purchase Amount (Rp):</label>
+              <input type="number" id="input9" step="10000" placeholder="e.g. 650000" value="650000">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx9()">Calculate Discount</button>
+            <div class="output-box" id="output9">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code9', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code9"><code>double totalPurchase = 650000;
+double discount = 0.0;
+
+if (totalPurchase >= 1000000) {
+    discount = 0.20;
+} else if (totalPurchase >= 500000) {
+    discount = 0.10;
+} else if (totalPurchase >= 250000) {
+    discount = 0.05;
+} else {
+    discount = 0.0;
+}
+
+double finalPrice = totalPurchase - (totalPurchase * discount);
+System.out.println("Final price: Rp " + finalPrice);</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 10 -->
+        <article class="card" id="ex-10">
+          <div class="card-top">
+            <span class="ex-number">#10</span>
+            <span class="badge elseif-badge">Multi-Branch</span>
+          </div>
+          <h3>Day from Number</h3>
+          <p class="desc">Input 1–7 to display the day of the week (1=Monday... 7=Sunday). If outside 1–7, display <strong>"Invalid day"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input10">Day Number (1 - 7):</label>
+              <input type="number" id="input10" placeholder="1 to 7" value="5">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx10()">Get Day Name</button>
+            <div class="output-box" id="output10">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code10', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code10"><code>int day = 5;
+
+if (day == 1) {
+    System.out.println("Monday");
+} else if (day == 2) {
+    System.out.println("Tuesday");
+} else if (day == 3) {
+    System.out.println("Wednesday");
+} else if (day == 4) {
+    System.out.println("Thursday");
+} else if (day == 5) {
+    System.out.println("Friday");
+} else if (day == 6) {
+    System.out.println("Saturday");
+} else if (day == 7) {
+    System.out.println("Sunday");
+} else {
+    System.out.println("Invalid day");
+}</code></pre>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         LEVEL 3: MULTIPLE CONDITIONS (EXERCISES 11 TO 15)
+    ================================================ -->
+    <section class="level-section" data-level="level-3">
+      <div class="level-header">
+        <span class="level-tag level-3-tag">Level 3</span>
+        <h2>Multiple Conditions (&amp;&amp; / ||)</h2>
+        <span class="level-count">Exercises 11 – 15</span>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Exercise 11 -->
+        <article class="card" id="ex-11">
+          <div class="card-top">
+            <span class="ex-number">#11</span>
+            <span class="badge condition-badge">Logic &amp;&amp;</span>
+          </div>
+          <h3>Simple Login</h3>
+          <p class="desc">Username: <code>admin</code>, Password: <code>12345</code>. Distinguish between incorrect username, incorrect password, and login successful.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input11User">Username:</label>
+                <input type="text" id="input11User" value="admin">
+              </div>
+              <div class="input-group">
+                <label for="input11Pass">Password:</label>
+                <input type="text" id="input11Pass" value="12345">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="solveEx11()">Test Login</button>
+            <div class="output-box" id="output11">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code11', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code11"><code>String username = "admin";
+String password = "12345";
+
+if (username.equals("admin") && password.equals("12345")) {
+    System.out.println("Login successful");
+} else if (!username.equals("admin")) {
+    System.out.println("Incorrect username");
+} else {
+    System.out.println("Incorrect password");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 12 -->
+        <article class="card" id="ex-12">
+          <div class="card-top">
+            <span class="ex-number">#12</span>
+            <span class="badge condition-badge">Logic &amp;&amp;</span>
+          </div>
+          <h3>Student Passing Check</h3>
+          <p class="desc">A student passes if <strong>score &ge; 60</strong> AND <strong>attendance &ge; 75%</strong>. If either condition fails, display <strong>"Fail"</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input12Score">Score (0-100):</label>
+                <input type="number" id="input12Score" value="70">
+              </div>
+              <div class="input-group">
+                <label for="input12Att">Attendance (%):</label>
+                <input type="number" id="input12Att" value="80">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="solveEx12()">Check Passing</button>
+            <div class="output-box" id="output12">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code12', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code12"><code>int score = 70;
+int attendance = 80;
+
+if (score >= 60 && attendance >= 75) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 13 -->
+        <article class="card" id="ex-13">
+          <div class="card-top">
+            <span class="ex-number">#13</span>
+            <span class="badge condition-badge">Logic ||</span>
+          </div>
+          <h3>Free Shipping + Membership</h3>
+          <p class="desc">Free shipping if purchase is <strong>&ge; 100,000 OR</strong> the customer <strong>is a member</strong>. Otherwise, apply shipping fee.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input13Amount">Total Purchase (Rp):</label>
+              <input type="number" id="input13Amount" step="5000" value="80000">
+            </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="input13Member" checked>
+              <span>Customer is a Member (isMember = true)</span>
+            </label>
+            <button class="btn btn-primary" onclick="solveEx13()">Check Shipping</button>
+            <div class="output-box" id="output13">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code13', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code13"><code>int totalPurchase = 80000;
+boolean isMember = true;
+
+if (totalPurchase >= 100000 || isMember) {
+    System.out.println("Free Shipping");
+} else {
+    System.out.println("Shipping Fee Applies");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 14 -->
+        <article class="card" id="ex-14">
+          <div class="card-top">
+            <span class="ex-number">#14</span>
+            <span class="badge condition-badge">String Logic</span>
+          </div>
+          <h3>Traffic Light</h3>
+          <p class="desc">Input a color: <code>red</code> &rarr; Stop, <code>yellow</code> &rarr; Get Ready, <code>green</code> &rarr; Go, otherwise &rarr; Invalid Color.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input14">Traffic Light Color:</label>
+              <select id="input14">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue (Other)</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="solveEx14()">Check Signal</button>
+            <div class="output-box" id="output14">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code14', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code14"><code>String color = "red";
+
+if (color.equalsIgnoreCase("red")) {
+    System.out.println("Stop");
+} else if (color.equalsIgnoreCase("yellow")) {
+    System.out.println("Get Ready");
+} else if (color.equalsIgnoreCase("green")) {
+    System.out.println("Go");
+} else {
+    System.out.println("Invalid Color");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 15 -->
+        <article class="card" id="ex-15">
+          <div class="card-top">
+            <span class="ex-number">#15</span>
+            <span class="badge condition-badge">Compound Logic</span>
+          </div>
+          <h3>Login and Account Status</h3>
+          <p class="desc">Correct credentials + active &rarr; <strong>Login successful</strong>; incorrect credentials &rarr; <strong>Invalid username or password</strong>; correct login but inactive &rarr; <strong>Account inactive</strong>.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input15User">Username:</label>
+                <input type="text" id="input15User" value="admin">
+              </div>
+              <div class="input-group">
+                <label for="input15Pass">Password:</label>
+                <input type="text" id="input15Pass" value="12345">
+              </div>
+            </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="input15Active">
+              <span>Account Status is Active</span>
+            </label>
+            <button class="btn btn-primary" onclick="solveEx15()">Authenticate</button>
+            <div class="output-box" id="output15">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code15', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code15"><code>String username = "admin";
+String password = "12345";
+boolean isActive = false;
+
+if (!username.equals("admin") || !password.equals("12345")) {
+    System.out.println("Invalid username or password");
+} else if (!isActive) {
+    System.out.println("Account inactive");
+} else {
+    System.out.println("Login successful");
+}</code></pre>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         LEVEL 4: ANALYTICAL (EXERCISES 16 TO 20)
+    ================================================ -->
+    <section class="level-section" data-level="level-4">
+      <div class="level-header">
+        <span class="level-tag level-4-tag">Level 4</span>
+        <h2>Analytical Problems</h2>
+        <span class="level-count">Exercises 16 – 20</span>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Exercise 16 -->
+        <article class="card" id="ex-16">
+          <div class="card-top">
+            <span class="ex-number">#16</span>
+            <span class="badge analytical-badge">Analytical</span>
+          </div>
+          <h3>Parking Fee</h3>
+          <p class="desc">1st hour = <strong>Rp5,000</strong>, each additional hour = <strong>Rp3,000</strong>, maximum fee = <strong>Rp20,000</strong>. Example: 5 hours = Rp17,000.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input16">Parking Duration (Hours):</label>
+              <input type="number" id="input16" min="1" max="48" value="5">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx16()">Calculate Fee</button>
+            <div class="output-box" id="output16">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code16', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code16"><code>int hours = 5;
+int fee = 0;
+
+if (hours <= 0) {
+    fee = 0;
+} else if (hours == 1) {
+    fee = 5000;
+} else {
+    fee = 5000 + (hours - 1) * 3000;
+    if (fee > 20000) {
+        fee = 20000; // Capped at max fee
+    }
+}
+System.out.println("Parking Fee: Rp " + fee);</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 17 -->
+        <article class="card" id="ex-17">
+          <div class="card-top">
+            <span class="ex-number">#17</span>
+            <span class="badge analytical-badge">Analytical</span>
+          </div>
+          <h3>Student Assessment System</h3>
+          <p class="desc">Student passes if: <strong>Score &ge; 60</strong>, <strong>Attendance &ge; 75%</strong>, and <strong>Assignments &ge; 80%</strong>. Displays exact failure reasons.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input17Score">Score (%):</label>
+                <input type="number" id="input17Score" value="55">
+              </div>
+              <div class="input-group">
+                <label for="input17Att">Attendance (%):</label>
+                <input type="number" id="input17Att" value="70">
+              </div>
+              <div class="input-group">
+                <label for="input17Assign">Assignments (%):</label>
+                <input type="number" id="input17Assign" value="85">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="solveEx17()">Evaluate Student</button>
+            <div class="output-box" id="output17">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code17', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code17"><code>int score = 55;
+int attendance = 70;
+int assignments = 85;
+
+boolean passScore = score >= 60;
+boolean passAtt = attendance >= 75;
+boolean passAssign = assignments >= 80;
+
+if (passScore && passAtt && passAssign) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail! Reasons:");
+    if (!passScore) System.out.println("- Score below 60");
+    if (!passAtt) System.out.println("- Attendance below 75%");
+    if (!passAssign) System.out.println("- Assignments below 80%");
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 18 -->
+        <article class="card" id="ex-18">
+          <div class="card-top">
+            <span class="ex-number">#18</span>
+            <span class="badge analytical-badge">Analytical</span>
+          </div>
+          <h3>Cashier Program</h3>
+          <p class="desc">Members receive <strong>10% discount</strong>. Checks if payment is sufficient, then calculates the final amount and change.</p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input18Total">Total Purchase (Rp):</label>
+                <input type="number" id="input18Total" step="5000" value="200000">
+              </div>
+              <div class="input-group">
+                <label for="input18Pay">Payment Paid (Rp):</label>
+                <input type="number" id="input18Pay" step="5000" value="200000">
+              </div>
+            </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="input18Member" checked>
+              <span>Customer is Member (10% Discount)</span>
+            </label>
+            <button class="btn btn-primary" onclick="solveEx18()">Process Payment</button>
+            <div class="output-box" id="output18">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code18', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code18"><code>double totalPurchase = 200000;
+double payment = 200000;
+boolean isMember = true;
+
+double finalAmount = totalPurchase;
+if (isMember) {
+    finalAmount = totalPurchase * 0.90; // 10% off
+}
+
+if (payment < finalAmount) {
+    System.out.println("Insufficient payment");
+} else {
+    double change = payment - finalAmount;
+    System.out.println("Final: Rp " + finalAmount);
+    System.out.println("Change: Rp " + change);
+}</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 19 -->
+        <article class="card" id="ex-19">
+          <div class="card-top">
+            <span class="ex-number">#19</span>
+            <span class="badge analytical-badge">Analytical</span>
+          </div>
+          <h3>Password Validation</h3>
+          <p class="desc">Length &lt; 8 &rarr; <strong>"Too short"</strong>; 8–11 &rarr; <strong>"Moderate"</strong>; &ge; 12 &rarr; <strong>"Strong"</strong>. Bonus: checks if password has digits.</p>
+
+          <div class="interactive-box">
+            <div class="input-group">
+              <label for="input19">Enter Password to Validate:</label>
+              <input type="text" id="input19" placeholder="Enter password..." value="mySecure99!">
+            </div>
+            <button class="btn btn-primary" onclick="solveEx19()">Validate Password</button>
+            <div class="output-box" id="output19">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code19', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code19"><code>String password = "mySecure99!";
+String strength;
+
+if (password.length() < 8) {
+    strength = "Too short";
+} else if (password.length() <= 11) {
+    strength = "Moderate";
+} else {
+    strength = "Strong";
+}
+
+boolean hasNumber = password.matches(".*\\d.*");
+System.out.println("Strength: " + strength);
+System.out.println("Contains Number: " + hasNumber);</code></pre>
+          </div>
+        </article>
+
+        <!-- Exercise 20 -->
+        <article class="card" id="ex-20">
+          <div class="card-top">
+            <span class="ex-number">#20</span>
+            <span class="badge analytical-badge">Analytical</span>
+          </div>
+          <h3>Mini Scholarship System</h3>
+          <p class="desc">
+            <strong>Full:</strong> Score &ge; 85, Attendance &ge; 90%, Income &le; Rp5,000,000, and Active.<br>
+            <strong>Partial:</strong> Score &ge; 75, Attendance &ge; 80%, Income &le; Rp8,000,000.<br>
+            <strong>Otherwise:</strong> "No scholarship".
+          </p>
+
+          <div class="interactive-box">
+            <div class="input-row">
+              <div class="input-group">
+                <label for="input20Score">Score:</label>
+                <input type="number" id="input20Score" value="88">
+              </div>
+              <div class="input-group">
+                <label for="input20Att">Attendance (%):</label>
+                <input type="number" id="input20Att" value="92">
+              </div>
+              <div class="input-group">
+                <label for="input20Income">Parents' Income (Rp):</label>
+                <input type="number" id="input20Income" step="500000" value="4500000">
+              </div>
+            </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="input20Active" checked>
+              <span>Student is Active in campus/school</span>
+            </label>
+            <button class="btn btn-primary" onclick="solveEx20()">Evaluate Scholarship</button>
+            <div class="output-box" id="output20">
+              <span class="output-placeholder">Click button to test</span>
+            </div>
+          </div>
+
+          <div class="code-accordion">
+            <button class="code-toggle" onclick="toggleCode('code20', this)">
+              <span>View Java Code</span>
+              <span class="arrow">▼</span>
+            </button>
+            <pre class="code-content" id="code20"><code>int score = 88;
+int attendance = 92;
+double income = 4500000;
+boolean isActive = true;
+
+if (score >= 85 && attendance >= 90 && income <= 5000000 && isActive) {
+    System.out.println("Full Scholarship");
+} else if (score >= 75 && attendance >= 80 && income <= 8000000) {
+    System.out.println("Partial Scholarship");
+} else {
+    System.out.println("No scholarship");
+}</code></pre>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p><strong>20 If / Else Exercises — Java</strong> &bull; Simple, beginner-friendly practice web app.</p>
+      <p class="footer-sub">Built to help you understand conditional logic in Java and test every case interactively.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
